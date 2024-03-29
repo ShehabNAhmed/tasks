@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+task.task_test,access_task_test,task.model_task_test,base.group_user,1,1,1,1
+task.create_lines,access_create_lines,task.model_create_lines,base.group_user,1,1,1,1
+task.create_order,access_create_order,task.model_create_order,base.group_user,1,1,1,1
+

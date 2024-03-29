@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="view_project_project_form_inherit" model="ir.ui.view">
+        <field name="name">project.project.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="sale_order" string="Sale Order" class="oe_highlight" data-hotkey="v" type="object"
+                        attrs="{'invisible': [('paid_unpaid', '!=', 'paid')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='label_tasks']" position="after">
+                <field name="paid_unpaid"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('paid_unpaid', '!=', 'paid')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="attrs">{'invisible': [('paid_unpaid', '!=', 'paid')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('paid_unpaid', '!=', 'paid')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_start']" position="attributes">
+                <attribute name="attrs">{'invisible': [('paid_unpaid', '!=', 'paid')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="attrs">{'invisible': [('paid_unpaid', '!=', 'paid')]}</attribute>
+            </xpath>
+            <notebook position="inside">
+                <page string="Sale Order" attrs="{'invisible': [('paid_unpaid', '!=', 'paid')]}">
+                    <group>
+                        <field name="create_line">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="description"/>
+                                <field name="quantity_id"/>
+                                <field name="price_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+
+
+            </notebook>
+
+
+        </field>
+    </record>
+
+
+</odoo>
